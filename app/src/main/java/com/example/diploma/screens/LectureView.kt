@@ -19,19 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.diploma.R
 import com.example.diploma.navigation.NavRoutes
+import com.example.diploma.functions.PracticeChoice
+import com.example.diploma.functions.switchTheme
 
-@Composable
-fun switchTheme(id: Int?): String {
-    return when (id) {
-        0 -> stringResource(R.string.lecture1)
-        1 -> stringResource(R.string.lecture2)
-        2 -> stringResource(R.string.lecture3)
-        3 -> stringResource(R.string.lecture4)
-        else -> {
-            "Error"
-        }
-    }
-}
 
 @Composable
 fun LectureView(navController: NavController) {
@@ -84,34 +74,7 @@ fun LectureView(navController: NavController) {
                     )
                 }
             }
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp)
-                    .clickable {
-                        navController.navigate(NavRoutes.PracticeView.route)
-                    }
-            ) {
-                Text(
-                    text = "Задание 1",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp)
-                )
-            }
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp)
-                    .clickable {
-                        navController.navigate(NavRoutes.PracticeView.route)
-                    }
-            ) {
-                Text(
-                    text = "Задание 2",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp)
-                )
-            }
+            PracticeChoice(navController)
         }
     }
 }
