@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.diploma.R
+import com.example.diploma.functions.practiceAnswerDraw
 import com.example.diploma.navigation.NavRoutes
 
 @Composable
@@ -44,7 +45,7 @@ fun PracticeView(navController: NavController) {
                         .clickable {
                             navController.navigate(NavRoutes.Lectures.route)
                         },
-                    painter = painterResource(id = R.drawable.ic_back),
+                    painter = painterResource(id = R.drawable.ic_backward),
                     contentDescription = "backward icon"
                 )
                 Card(
@@ -69,62 +70,7 @@ fun PracticeView(navController: NavController) {
                     )
                 }
             }
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp)
-                    .clickable {
-
-                    }
-            ) {
-                Text(
-                    text = "Вариант ответа 1",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp)
-                )
-            }
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp)
-                    .clickable {
-
-                    }
-            ) {
-                Text(
-                    text = "Вариант ответа 2",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp)
-                )
-            }
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp)
-                    .clickable {
-
-                    }
-            ) {
-                Text(
-                    text = "Вариант ответа 3",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp)
-                )
-            }
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp)
-                    .clickable {
-
-                    }
-            ) {
-                Text(
-                    text = "Вариант ответа 4",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp)
-                )
-            }
+            practiceAnswerDraw()
         }
     }
 }

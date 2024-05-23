@@ -16,10 +16,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.diploma.R
 import com.example.diploma.navigation.NavRoutes
 import com.example.diploma.functions.PracticeChoice
+import com.example.diploma.functions.getLectureContent
 import com.example.diploma.functions.switchTheme
 
 
@@ -39,7 +41,7 @@ fun LectureView(navController: NavController) {
             Row(
                 modifier = Modifier
                     .padding(5.dp),
-                horizontalArrangement = Arrangement.Start,
+                horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.Top
             ) {
                 Image(
@@ -49,12 +51,12 @@ fun LectureView(navController: NavController) {
                         .clickable {
                             navController.navigate(NavRoutes.Lectures.route)
                         },
-                    painter = painterResource(id = R.drawable.ic_back),
+                    painter = painterResource(id = R.drawable.ic_backward),
                     contentDescription = "backward icon"
                 )
                 Card(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
                 )
                 {
                     Text(
@@ -64,15 +66,14 @@ fun LectureView(navController: NavController) {
                 }
             }
             Card(
-                modifier = Modifier.fillMaxSize(0.8f)
+                modifier = Modifier
+                    .fillMaxSize()
             ) {
-                for (i: Int in 0..10) {
-                    Text(
-                        stringResource(id = R.string.lecture_content),
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(20.dp)
-                    )
-                }
+                Text(
+                    text = getLectureContent(),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(20.dp)
+                )
             }
             PracticeChoice(navController)
         }

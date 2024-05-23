@@ -16,7 +16,7 @@ import com.example.diploma.navigation.NavRoutes
 
 @Composable
 fun PracticeChoice(navController: NavController) {
-    for (i: Int in 0..3)
+    for (i: Int in 1..4)
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -43,5 +43,78 @@ fun switchTheme(id: Int?): String {
         else -> {
             "Error"
         }
+    }
+}
+
+@Composable
+fun getLectureContent(): String {
+    return stringResource(R.string.lecture_content)
+}
+
+//@Composable
+//fun practiceAnswerDraw() {
+//    for (i: Int in 1..4) {
+//        Card(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(5.dp)
+//                .clickable {
+//
+//                }
+//        ) {
+//            Text(
+//                text = "Вариант ответа $i",
+//                textAlign = TextAlign.Center,
+//                modifier = Modifier.padding(10.dp)
+//            )
+//        }
+//    }
+//}
+
+@Composable
+fun practiceAnswerDraw() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp)
+    ) {
+        Text(
+            text = "Git",
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(10.dp)
+        )
+    }
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp)
+    ) {
+        Text(
+            text = "Mercurial",
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(10.dp)
+        )
+    }
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp)
+    ) {
+        Text(
+            text = "Bazaar",
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(10.dp)
+        )
+    }
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(5.dp)
+    ) {
+        Text(
+            text = "Subversion",
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(10.dp)
+        )
     }
 }
