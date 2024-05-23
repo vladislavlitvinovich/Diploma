@@ -31,32 +31,39 @@ fun Lectures(navController: NavController) {
             modifier = Modifier.verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            LecturesIconsDraw(navController)
             LecturesDraw(navController)
         }
     }
 }
 
 @Composable
-fun LecturesIconsDraw(){
-    Row{
+fun LecturesIconsDraw(navController: NavController){
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){
         Image(
             modifier = Modifier
+                .weight(1f)
                 .size(60.dp)
                 .padding(5.dp)
                 .clickable {
                     //navController.navigate(NavRoutes.Lectures.route)
                 },
-            painter = painterResource(id = R.drawable.ic_back),
+            painter = painterResource(id = R.drawable.ic_human),
             contentDescription = "profile icon"
         )
         Image(
             modifier = Modifier
+                .weight(1f)
                 .size(60.dp)
                 .padding(5.dp)
                 .clickable {
                     //navController.navigate(NavRoutes.Lectures.route)
                 },
-            painter = painterResource(id = R.drawable.ic_back),
+            painter = painterResource(id = R.drawable.ic_search),
             contentDescription = "search icon"
         )
     }
@@ -72,10 +79,11 @@ fun LecturesDraw(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Column(
-                modifier = Modifier.padding(5.dp)
+                modifier = Modifier
+                    .padding(5.dp)
                     .clickable {
-                    navController.navigate(route = "lectureView/$i")
-                },
+                        navController.navigate(route = "lectureView/$i")
+                    },
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
